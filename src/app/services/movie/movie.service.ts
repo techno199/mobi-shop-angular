@@ -37,6 +37,7 @@ export class MovieService {
     // Clear
     if (search === '') {
       this.clearMovies();
+      return of([]);
     }
     else {
       return this.http.get(this.domainUrl, options)
