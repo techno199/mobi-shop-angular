@@ -1,0 +1,116 @@
+:host
+{
+  width: 100%;
+}
+.container__large 
+{
+  display: none;
+}
+.container__small
+{
+  display: flex;
+  flex-flow: column nowrap;
+}
+.movie-header
+{
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 16px;
+}
+.poster
+{
+  width: 100px;
+  height: 150px;
+}
+.info
+{
+  display: flex;
+  flex-flow: column nowrap;
+  padding-left: 14px;
+}
+.info p
+{
+  color: #9b9b9b;
+  margin-top: 4px;
+}
+.small-image
+{
+  max-width: 100%;
+}
+.movie-title
+{
+  font-size: 16px;
+  margin: 0;
+}
+.movie-description
+{
+  border-top: 1px solid #e1e1e1;
+  padding: 16px;
+}
+.movie-description span
+{
+  font-size: 14px;
+  line-height: 20px;
+}
+.movie-actors, .movie-director
+{
+  padding: 16px;
+  border-top: 1px solid #e1e1e1;
+}
+.section-header
+{
+  padding: 15px 16px 11px;
+  background-color: #f5f5f5;
+}
+@media only screen and (min-width: 768px)
+{
+  :host 
+  {
+    display: flex;
+    justify-content: center;
+    width: 584px;
+  }
+  .container__small 
+  {
+    display: none;
+  }
+  .container__large
+  {
+    display: flex;
+    flex-flow: column;
+  }
+  .image-holder
+  {
+    width: 240px;
+    flex-shrink: 0;
+    margin-right: 12px;
+    margin-bottom: 12px;
+  }
+  .image
+  {
+    max-width: 100%;
+  }
+  .main-info
+  {
+    display: flex;
+  }
+  .side-info
+  {
+    margin-left: auto;
+  }
+  .info
+  {
+    width:465px;
+  }
+  .info tr
+  {
+    background: url(https://st.kp.yandex.net/images/movies/dotbgtable.png) left bottom repeat-x;
+  }
+  .info td 
+  {
+    padding: 6px 0 6px 20px;
+  }
+  .plot {
+    margin-top: 24px;
+  }
+}

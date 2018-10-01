@@ -1,0 +1,125 @@
+<div class="container__large">
+  <div class="main-info">
+    <div class="image-holder">
+      <img class="image" [src]="movie.Poster" />
+    </div>
+    <div class="side-info">
+      <div class="title">
+        <h1>
+          {{movie.Title}}
+        </h1>
+      </div>
+      <table class="info">
+        <tbody>
+          <tr>
+            <td class="type">
+              Year
+            </td>
+            <td>
+              <div>
+                {{movie.Year}}
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="type">
+              Writer
+            </td>
+            <td>
+              <div>
+                {{movie.Writer}}
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="type">
+              Director
+            </td>
+            <td>
+              <div>
+                {{movie.Director}}
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="type">
+              Actors
+            </td>
+            <td>
+              <div>
+                {{movie.Actors}}
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="type">
+              Released
+            </td>
+            <td>
+              <div>
+                {{movie.Released}}
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="type">
+              Runtime
+            </td>
+            <td>
+              <div>
+                {{movie.Runtime}}
+              </div>
+            </td>
+          </tr>
+          <tr *ngIf="movie.Website !== 'N/A'">
+            <td class="type">
+              Website
+            </td>
+            <td>
+              <div>
+                <a [href]="movie.Website" >{{movie.Website}}</a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  </div>
+  <div class="plot">
+    {{movie.Plot}}
+  </div>
+</div>
+<div class="container__small">
+  <div class="movie-header">
+    <div class="poster">
+      <img class="small-image" [src]="movie.Poster" />
+    </div>
+    <div class="info">
+      <h1 class="movie-title">{{movie.Title}}</h1>
+      <p>{{movie.Released}}, <span>{{movie.Runtime}}</span></p>
+    </div>
+  </div>
+  <section class="movie-description">
+    <span>
+      {{movie.Plot}}
+    </span>
+  </section>
+  <div class="section-header">
+    <span>Actors</span>
+  </div>
+  <section class="movie-actors">
+    <span>
+      {{movie.Actors}}
+    </span>
+  </section>
+  <div class="section-header">
+    <span>Director</span>
+  </div>
+  <section class="movie-director">
+      <span>
+        {{movie.Director}}
+      </span>
+    </section>
+</div>
+
+

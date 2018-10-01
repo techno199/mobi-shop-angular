@@ -1,0 +1,24 @@
+<form class="container">
+  <mat-form-field class="search">
+    <input 
+      type="text" 
+      placeholder="Search movie.." 
+      aria-label="Number" 
+      matInput [formControl]="myControl" 
+      [matAutocomplete]="auto" 
+      (keyup.enter)="onSelect()"
+      #autocompleteInput>
+    <mat-autocomplete #auto="matAutocomplete" >
+      <mat-option *ngFor="let movie of movies" [value]="movie.Title">
+        <div class="search-item">
+          <!-- <div class="search-item__image" style="background:url({{movie.poster}})">
+            <img [src]="movie.poster"/>
+          </div> -->
+          <div class="search-item__title" routerLink="/detail/{{movie.imdbID}}">
+              {{movie.Title}}
+          </div>
+        </div>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

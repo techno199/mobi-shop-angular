@@ -1,0 +1,31 @@
+:host
+{
+  width: 584px;
+  display: flex;
+  justify-content: center;
+}
+.search
+{
+  width: 100%;
+  font-size: 14px;
+}
+.container
+{
+  width: 100%;
+}
+.search-item 
+{
+  display: flex;
+}
+.search-item__title
+{
+  display: flex;
+  outline: none;
+}
+@media(max-width: 699px)
+{
+  .container
+  {
+    width: 60%;
+  }
+}
