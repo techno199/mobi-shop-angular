@@ -2,14 +2,16 @@
   <div class="movie-cards__container">
     <div class="card" *ngFor="let movie of movies" [routerLink]="['/detail', movie.imdbID]">
       <mat-card>
-        <mat-card-header>
-          <mat-card-title>{{movie.Title}}</mat-card-title>
-        </mat-card-header>
-        <div *ngIf="movie.Poster !== 'N/A'" class="image-holder">
-          <img class="image" [src]="movie.Poster" />
-        </div>  
-        <div *ngIf="movie.Poster === 'N/A'" class="no-image">
-          No image provided
+        <div class="card-container">
+          <mat-card-header>
+            <mat-card-title>{{movie.Title}}</mat-card-title>
+          </mat-card-header>
+          <div *ngIf="movie.Poster !== 'N/A'" class="image-holder">
+            <img class="image" [src]="movie.Poster" />
+          </div>  
+          <div *ngIf="movie.Poster === 'N/A'" class="no-image">
+            No image provided
+          </div>
         </div>
       </mat-card>
     </div>
