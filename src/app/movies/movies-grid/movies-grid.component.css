@@ -2,11 +2,33 @@
 {
   display: flex;
   flex-flow: column nowrap;
+  width: 1056px;
+}
+@media(max-width: 548px)
+{
+  .container
+  {
+    width: 256px;
+  }
+}
+@media(min-width: 548px) and (max-width: 822px)
+{
+  .container
+  {
+    width: 528px;
+  }
+}
+@media(min-width: 822px) and (max-width: 1076px)
+{
+  .container
+  {
+    width: 792px;
+  }
 }
 .movie-cards__container
 {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-flow: row wrap;
   max-width: 1056px;
 }
