@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../../services/movie/movie.service';
 import { Movie } from '../../models/movie';
 import { Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PageEvent } from '@angular/material';
 
 @Component({
   selector: 'app-movies-grid',
@@ -11,26 +12,33 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MoviesGridComponent implements OnInit {
   movies: Movie[];
+  totalResults: string;
+  searchTerm: string;
+  currentPage: string;
 
   constructor(
     public movieService: MovieService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
-    // this.movieService.moviesChange
-    //   .subscribe(movies => {
-    //     this.movies = movies;
-    //   });
-    
-    this.route.paramMap
+    this.route.queryParams
       .subscribe(params => {
-        let query = params.get('query');
-        this.movieService.getMovies(query)
-          .subscribe(movies => {
-            this.movies = movies;
+        this.searchTerm = params['s'];
+        this.currentPage = params['page'];
+        this.movieService.getMovies(this.searchTerm, this.currentPage || '1')
+          .subscribe(response => {
+            this.movies = response.movies;
+            this.totalResults = response.totalResults;
           });
       })
+  }
+
+  onPageChange(pageEvent: PageEvent) {
+    let nextPage = pageEvent.pageIndex + 1;
+    let currentUrl = this.router.url.split('?')[0];
+    this.router.navigate([currentUrl], { queryParams: {'s': this.searchTerm, 'page': nextPage }});
   }
 
 }

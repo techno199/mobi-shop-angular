@@ -30,9 +30,9 @@ export class AutocompleteComponent implements OnInit {
         debounceTime(500)
       )
       .subscribe(value => {
-        this.movieService.getMovies(value).subscribe(movies => {
-            if(movies.length) {
-              this.movies = movies
+        this.movieService.getMovies(value).subscribe(response => {
+            if(response.movies.length) {
+              this.movies = response.movies;
             }
             else {
               this.movies = [];
@@ -58,13 +58,13 @@ export class AutocompleteComponent implements OnInit {
    */
   onSelect() {
     this.movieService.getMovies(this.myControl.value)
-      .subscribe(movies => {
+      .subscribe(response => {
         // Open movie details if found single appropriate result
-        if (movies.length === 1) {
-          this.router.navigate(['/detail', movies[0].imdbID]);
+        if (response.movies.length === 1) {
+          this.router.navigate(['/detail', response.movies[0].imdbID]);
         }
         else {
-          this.router.navigate(['/search', this.myControl.value]);
+          this.router.navigate(['/search'], { queryParams: { 's': this.myControl.value }});
         }
       });
     this.trigger.closePanel();

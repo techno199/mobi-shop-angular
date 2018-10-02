@@ -14,7 +14,7 @@ const routes: Routes = [
         component: MovieDetailComponent
       },
       {
-        path: 'search/:query',
+        path: 'search',
         component: MoviesGridComponent
       }
     ]

@@ -1,3 +1,8 @@
+.container
+{
+  display: flex;
+  flex-flow: column nowrap;
+}
 .movie-cards__container
 {
   display: flex;

@@ -27,34 +27,41 @@ export class MovieService {
   * @param search 
   * Title of movie
   */
-  getMovies(search: string = ''): Observable<Movie[]> {
+  getMovies(search: string = '', page: string = '1'): Observable<{movies: Movie[], totalResults: string}> {
     let options = {
       params: new HttpParams()
         .set('s', search)
+        .set('page', page)
         .set('apikey', this.apikey)
     }
 
     // Clear
     if (search === '') {
       this.clearMovies();
-      return of([]);
+      return of({movies: [], totalResults: '0'});
     }
     else {
       return this.http.get(this.domainUrl, options)
       .pipe(
         map( response => {
-          return response['Search'] ? response['Search'] : [];
+          if (response['Search']) {
+            return {movies: response['Search'], totalResults: response['totalResults']};
+          } 
+          else {
+            return {movies: [], totalResults: '0'};
+          }
         }),
         map( response => {
           let movies: Movie[] = [];
-          for (let result of response) {
-            movies.push(result as Movie);
+          for (let movie of response.movies) {
+            movies.push(movie as Movie);
           }
-          return movies
+          response.movies = movies;
+          return response;
         }),
-        tap( movies => {
-          if (movies.length > 0) {
-            this.moviesChange.next(movies);
+        tap( response => {
+          if (response.movies.length > 0) {
+            this.moviesChange.next(response.movies);
           }
         },
         error => {

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MatAutocompleteModule, MatFormFieldModule, MatInputModule, MatToolbarModule, MatCardModule, MatCardImage } from '@angular/material';
+import { MatAutocompleteModule, MatFormFieldModule, MatInputModule, MatToolbarModule, MatCardModule, MatCardImage, MatPaginatorModule } from '@angular/material';
 import { AutocompleteComponent } from '../../movies/autocomplete/autocomplete.component';
 import { ToolbarComponent } from '../../movies/toolbar/toolbar.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -23,6 +23,7 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     RouterModule,
     MatCardModule,
+    MatPaginatorModule
   ],
   declarations: [
     AutocompleteComponent,
@@ -42,6 +43,7 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     RouterModule,
     MatCardModule,
+    MatPaginatorModule
   ]
 })
 export class SharedModule { }
