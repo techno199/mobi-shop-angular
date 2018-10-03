@@ -1,7 +1,7 @@
 <div class="container">
   <div class="movie-cards__container">
     <div class="card" *ngFor="let movie of movies" [routerLink]="['/detail', movie.imdbID]">
-      <mat-card>
+      <mat-card class="t">
         <div class="card-container">
           <mat-card-header>
             <mat-card-title>{{movie.Title}}</mat-card-title>

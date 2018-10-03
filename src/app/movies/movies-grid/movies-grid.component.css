@@ -70,3 +70,7 @@
 {
   max-width: 100%;
 }
+.t
+{
+  flex-grow: 1;
+}
